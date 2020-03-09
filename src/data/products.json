@@ -1,0 +1,16 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "name": "alien 100% real no feik",
+            "description": "What are you looking at now is just a meme, no real product of an alien is intended here. LOOL",
+            "keywords": [
+                "meme",
+                "feik",
+                "no real product"
+            ],
+            "image": "prueba-inutil.jpg",
+            "price": 19.99
+        }
+    ]
+}
