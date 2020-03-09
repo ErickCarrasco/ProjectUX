@@ -4,9 +4,9 @@ import ProductListing  from './feature/product-listing';
 
 import data from './data/products.json';
 
-export const Store=(props)=>(
-    <div>
+export default function Store(props){
+    return <div>
         <h2>Store</h2>
         <ProductListing products={data.products} />
     </div>
-)
+}
