@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import Store from './Store';
+import Storemain from './Storemain';
 import { Contact } from './Contact';
 import { NoMatch } from './NoMatch';
 import { About } from './About';
@@ -16,7 +16,7 @@ const Router = () => (
         <Layout>
             
             <Switch>
-                <Route exact path='/' component={Store} />
+                <Route exact path='/' component={Storemain} />
                 <Route path='/contact' component={Contact} />
                 <Route path="/about" component={About} />
                 <Route component={NoMatch} />
