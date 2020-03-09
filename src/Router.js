@@ -8,11 +8,13 @@ import { Layout } from './components/Layout';
 import { NavigationBar } from './components/NavigationBar';
 import { Jumbotron } from './components/Jumbotron';
 
+
 const Router = () => (
     <React.Fragment>
         <NavigationBar />
         <Jumbotron />
         <Layout>
+            
             <Switch>
                 <Route exact path='/' component={Store} />
                 <Route path='/contact' component={Contact} />
@@ -22,5 +24,8 @@ const Router = () => (
         </Layout>
     </React.Fragment>
 )
+
+
+
 
 export default Router;
