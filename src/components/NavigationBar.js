@@ -1,6 +1,7 @@
 import React from 'react';
 import { Nav, Navbar } from 'react-bootstrap';
 import styled from 'styled-components';
+import Login from '../login';
 
 const Styles = styled.div`
     .navbar {
@@ -25,6 +26,7 @@ export const NavigationBar = ()=>(
                     <Nav.Item><Nav.Link href="/">Home</Nav.Link></Nav.Item>
                     <Nav.Item><Nav.Link href="/contact">Contact</Nav.Link></Nav.Item>
                     <Nav.Item><Nav.Link href="/about">About</Nav.Link></Nav.Item>
+                    <Nav.Item><Login/></Nav.Item>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>
