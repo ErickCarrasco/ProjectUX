@@ -6,7 +6,7 @@ Usar npm install para las dependencias del archivo
 
 Front-end: React, Bootstrap
 
-Database/Back-end: (Not implemented but on work) Firebase, Redux
+Database/Back-end: Firebase, Redux
 
 Yarn
 Usar: yarn start
