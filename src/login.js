@@ -17,15 +17,20 @@ class Login extends Component {
       return (
         <div>
             {
+                
               user
-                ? <p>Hello, {user.displayName}</p>
+                ? <div>
+                    
+                    
+                    <p>Hello, {user.displayName}</p>
+                </div>
                 : <p>Please sign in.</p>
             }
   
             {
               user
                 ? <button onClick={signOut}>Sign out</button>
-                : <button onClick={signInWithGoogle}>Sign in with Google</button>
+                : <button onClick={signInWithGoogle}>Sign in</button>
             }
         </div>
       );
@@ -37,6 +42,9 @@ const firebaseAppAuth = firebaseApp.auth();
 const providers = {
   googleProvider: new firebase.auth.GoogleAuthProvider(),
 };
+
+
+
 
 export default withFirebaseAuth({
   providers,

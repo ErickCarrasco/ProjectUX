@@ -7,7 +7,7 @@ import { About } from './About';
 import { Layout } from './components/Layout';
 import { NavigationBar } from './components/NavigationBar';
 import { Jumbotron } from './components/Jumbotron';
-
+import CreateProject from './projects/CreateProject';
 
 const Router = () => (
     <React.Fragment>
@@ -19,6 +19,7 @@ const Router = () => (
                 <Route exact path='/' component={Storemain} />
                 <Route path='/contact' component={Contact} />
                 <Route path="/about" component={About} />
+                <Route path="/dummy" component={CreateProject} />
                 <Route component={NoMatch} />
             </Switch>
         </Layout>
