@@ -28,6 +28,7 @@ const rrfProps = {
     createFirestoreInstance
 };
 
+
 const app = <Provider store={store}>
     <ReactReduxFirebaseProvider {...rrfProps}>
         <BrowserRouter>

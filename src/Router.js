@@ -8,6 +8,10 @@ import { Layout } from './components/Layout';
 import { NavigationBar } from './components/NavigationBar';
 import { Jumbotron } from './components/Jumbotron';
 import CreateProject from './projects/CreateProject';
+import SignIn from './auth/signIn';
+import SignUp from './auth/signUp'
+import Dashboard from './boards/dashboard'
+import ProductDetails from './projects/ProductDetails'
 
 const Router = () => (
     <React.Fragment>
@@ -20,7 +24,12 @@ const Router = () => (
                 <Route path='/contact' component={Contact} />
                 <Route path="/about" component={About} />
                 <Route path="/dummy" component={CreateProject} />
+                <Route path="/signin" component = {SignIn}/>
+                <Route path="/signup" component = {SignUp}/>
+                <Route path="/mainmenu" component={Dashboard}/>
+                <Route path='/product/:id' component={ProductDetails} />
                 <Route component={NoMatch} />
+                
             </Switch>
         </Layout>
     </React.Fragment>

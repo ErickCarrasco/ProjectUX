@@ -1,6 +1,8 @@
 import React from 'react';
 import { Nav, Navbar } from 'react-bootstrap';
 import styled from 'styled-components';
+import SignedInLinks from './signedInLinks'
+import SignedOutLinks from './signedOutLinks'
 
 
 const Styles = styled.div`
@@ -29,8 +31,17 @@ export const NavigationBar = ()=>(
                     <Nav.Item><Nav.Link href="/dummy">CreateProject</Nav.Link></Nav.Item>
                     
                 </Nav>
+                <Nav className="ml-auto">
+                    <Nav.Item><Nav.Link href="/">Sign In</Nav.Link></Nav.Item>
+                </Nav>
                 
             </Navbar.Collapse>
         </Navbar>
+        <Nav>
+            <div className="container">
+                <SignedInLinks />
+                <SignedOutLinks />
+            </div>
+        </Nav>
     </Styles>
 )

@@ -2,7 +2,7 @@ export const createProject = (project) =>{
     return (dispatch, getState, { getFirebase, getFirestore}) =>{
         const firestore = getFirestore();
         //Reference to firebase datastore
-        firestore.collection('checkouts').add({
+        firestore.collection('products').add({
             ...project,
             authorName: 'Not Found',
             authorID: 404,
