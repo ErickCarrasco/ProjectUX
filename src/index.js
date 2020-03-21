@@ -1,49 +1,55 @@
+/* eslint-disable no-underscore-dangle */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import * as serviceWorker from './serviceWorker'
-import App from './App';
-import { BrowserRouter } from 'react-router-dom';
 import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
-import rootReducer from './config/store';
 import thunk from 'redux-thunk';
-//import { reduxFirestore, getFirestore } from 'redux-firestore';
-//import { reactReduxFirebase, getFirebase } from 'react-redux-firebase';
-import firebase, { fbConfig } from './config/fbConfig'
+import { createFirestoreInstance, reduxFirestore, getFirestore } from 'redux-firestore';
 import { ReactReduxFirebaseProvider, getFirebase } from 'react-redux-firebase';
-import { reduxFirestore, createFirestoreInstance, getFirestore } from 'redux-firestore';
+import firebase from './config/fbConfig';
 
-const store = createStore(rootReducer,
-    compose(
-        applyMiddleware(thunk.withExtraArgument({ getFirebase, getFirestore })),
-        reduxFirestore(firebase, fbConfig)
-    )
-);
+import './index.css';
+import App from './App';
+import * as serviceWorker from './serviceWorker';
 
-const rrfProps = {
-    firebase,
-    config: fbConfig,
-    dispatch: store.dispatch,
-    createFirestoreInstance
+import rootReducer from './store/reducers/rootReducer';
+
+// We enhance compose in order to use Redux DevTools extension
+// https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+// Create config for rrfProps object. We need this to pass it in the ReactReduxFirebaseProvider component
+const rrfConfig = {
+  useFirestoreForProfile: true, // Firestore for Profile instead of Realtime DB
+  userProfile: 'users',
+  attachAuthIsReady: true,
 };
 
+const store = createStore(rootReducer,
+  composeEnhancers(
+    applyMiddleware(thunk.withExtraArgument({ getFirebase, getFirestore })),
+    reduxFirestore(firebase), // still need this line to get access to firestore via getFirestore function (in projectActions, for example)
+  ));
 
-const app = <Provider store={store}>
+const rrfProps = {
+  firebase,
+  config: rrfConfig,
+  dispatch: store.dispatch,
+  createFirestoreInstance, // Create firestore instead of craete it in fbConfig.js
+};
+
+ReactDOM.render(
+  <Provider store={store}>
     <ReactReduxFirebaseProvider {...rrfProps}>
-        <BrowserRouter>
-
-            <App />
-        </BrowserRouter>
+      <App />
     </ReactReduxFirebaseProvider>
-</Provider>
+  </Provider>,
+  document.getElementById('root'),
+);
 
-
-
-ReactDOM.render(app, document.getElementById('root'));
-
+console.log('store', store);
+console.log('state', store.getState());
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
-
 serviceWorker.unregister();
