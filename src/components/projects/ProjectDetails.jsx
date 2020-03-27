@@ -21,7 +21,7 @@ const ProjectDetails = (props) => {
             <p>{project.content}</p>
           </div>
           <div className="card-action grey lighten-4 grey-text">
-            <div>Price: {project.price} {project.shipping}</div>
+            <div>Price: ${project.price} shipping: {project.shipping}</div>
             
           </div>
         </div>
