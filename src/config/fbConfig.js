@@ -18,3 +18,6 @@ firebase.initializeApp(config);
 // firebase.firestore(); // We don't need this anymore because we create firestore in index.js
 
 export default firebase;
+export const googleProvider = new firebase.auth.GoogleAuthProvider();
+export const auth = firebase.auth();
+export const twitterProvider = new firebase.auth.TwitterAuthProvider();

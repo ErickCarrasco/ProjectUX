@@ -8,7 +8,7 @@ const Styles = styled.div`
         background: url(${backgroundTech}) no-repeat fixed bottom;
         background-size: cover;
         color: #efefef;
-        height: 300px;
+        height: 200px;
         position: relative;
         z-index: -2;
     }
@@ -31,7 +31,7 @@ export const Jumbotron = ()=>(
             <div className="overlay"></div>
             <Container>
                 <h1>Welcome</h1>
-                <p>A new store for you.. Not really..</p>
+                <p>A new store for you.. Not really.. lol..</p>
             </Container>
         </Jumbo>
     </Styles>

@@ -1,15 +1,22 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
-/* eslint-disable jsx-a11y/label-has-for */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import createProject from '../../store/actions/projectActions';
 
+
 class CreateProject extends Component {
-  state = {
-    title: '',
-    content: '',
+  constructor(props){
+    super(props);
+    this.state={
+      title: '',
+      content: '',
+      imageURL:'',
+      price:''
+    }
+    this.handleChange=this.handleChange.bind(this);
   }
+ 
+  
 
   handleChange = (e) => {
     const { target } = e;
@@ -30,6 +37,7 @@ class CreateProject extends Component {
   }
 
   render() {
+
     const { auth } = this.props;
     if (!auth.uid) {
       return <Redirect to="/signin" />;
@@ -47,6 +55,15 @@ class CreateProject extends Component {
             <label htmlFor="content">Product Content</label>
             <textarea name="content" id="content" cols="30" rows="10" className="materialize-textarea" onChange={this.handleChange} />
           </div>
+          <div className="input-field">
+            <label htmlFor="title">IMG URL</label>
+            <input type="text" name="title" id="title" onChange={this.handleChange} />
+          </div>
+          <div className="input-field">
+            <label htmlFor="title">Price</label>
+            <input type="text" name="title" id="title" onChange={this.handleChange} />
+          </div>
+          
           <div className="input-field">
             <button type="submit" className="btn pink lighten-1 z-depth-0">Create</button>
           </div>
