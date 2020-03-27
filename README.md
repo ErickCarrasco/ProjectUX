@@ -11,3 +11,8 @@ Database/Back-end: Firebase, Redux
 Yarn
 Usar: yarn start
 Asi se puede correr localmente la aplicacion
+
+Host page
+https://accountsux.firebaseapp.com/
+
+Usando firebase hosting para tener un host del app
