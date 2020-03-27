@@ -12,7 +12,7 @@ import SignUp from './components/auth/SignUp';
 import CreateProject from './components/projects/CreateProject';
 import { Jumbotron } from './components/Jumbotron';
 import { Layout } from './components/Layout';
-import Login from './auth/Login';
+import Login from './components/auth/Login';
 
 class App extends Component {
   render() {
@@ -31,9 +31,10 @@ class App extends Component {
               <Route exact path="/" component={Dashboard} />
               <Route path="/project/:id" component={ProjectDetails} />
               <Route path="/signin" component={Login}/>
-              <Route path="/signina" component={SignIn} />
+              <Route path="/signinadm" component={SignIn} />
               <Route path="/signup" component={SignUp} />
               <Route path="/create" component={CreateProject} />
+              <Route path="/contact" component={contact}/>
               <Route path="/:any" component={Dashboard} />
             </Switch>
             </Layout>
