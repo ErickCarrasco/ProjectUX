@@ -34,6 +34,7 @@ const ProjectDetails = (props) => {
         </div>
         <div>
           <button onClick={()=>props.addToCart(project)}>Add to Cart</button>
+
         </div>
       </div>
     );

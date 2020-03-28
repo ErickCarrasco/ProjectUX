@@ -5,13 +5,14 @@ import createProject from '../../store/actions/projectActions';
 
 
 class CreateProject extends Component {
-  constructor(props){
-    super(props);
+    constructor(props){
+      super(props);
     this.state={
       title: '',
       content: '',
-      imageURL:'',
-      price:''
+      imgURL:'',
+      price:'',
+      shipping:''
     }
     this.handleChange=this.handleChange.bind(this);
   }
@@ -61,11 +62,15 @@ class CreateProject extends Component {
           </div>
           <div className="input-field">
             <label htmlFor="title">IMG URL</label>
-            <input type="text" name="title" id="title" onChange={this.handleChange} />
+            <input type="text" name="title" id="imgURL" onChange={this.handleChange} />
           </div>
           <div className="input-field">
             <label htmlFor="title">Price</label>
-            <input type="text" name="title" id="title" onChange={this.handleChange} />
+            <input type="text" name="title" id="price" onChange={this.handleChange} />
+          </div>
+          <div className="input-field">
+            <label htmlFor="title">Shipping</label>
+            <input type="text" name="title" id="shipping" onChange={this.handleChange} />
           </div>
           
           <div className="input-field">
