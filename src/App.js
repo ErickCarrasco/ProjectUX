@@ -13,7 +13,7 @@ import CreateProject from './components/projects/CreateProject';
 import { Jumbotron } from './components/Jumbotron';
 import { Layout } from './components/Layout';
 import Login from './components/auth/Login';
-import FloatCart from './cart/index';
+import cart from './components/cartRedux/components/cart';
 
 class App extends Component {
   render() {
@@ -35,11 +35,12 @@ class App extends Component {
               <Route path="/signinadm" component={SignIn} />
               <Route path="/signup" component={SignUp} />
               <Route path="/prxcr" component={CreateProject} />
+              <Route path="/cart" component={cart}/>
               <Route path="/:any" component={Dashboard} />
             </Switch>
             </Layout>
           </div>
-          <FloatCart/>
+          
         </BrowserRouter>
       );
     }

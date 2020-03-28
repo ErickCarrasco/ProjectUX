@@ -3,10 +3,12 @@ import { firestoreReducer } from 'redux-firestore'; // syncing firestore
 import { firebaseReducer } from 'react-redux-firebase';
 import authReducer from './authReducer';
 import projectReducer from './projectReducer';
+import cartReducer from '../../components/cartRedux/reducer/cartReducer';
 
 const rootReducer = combineReducers({
   auth: authReducer,
   project: projectReducer,
+  cart: cartReducer,
   firestore: firestoreReducer,
   firebase: firebaseReducer,
 });

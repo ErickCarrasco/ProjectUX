@@ -3,12 +3,19 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
+import { bindActionCreators } from 'redux'
+import {addToCart} from '../../components/cartRedux/actions/cartActions'
+
+
+
 
 const ProjectDetails = (props) => {
+
   const { auth } = props;
   if (!auth.uid) {
     return <Redirect to="/signin" />;
   }
+  
 
   const { project } = props;
   if (project) {
@@ -24,6 +31,9 @@ const ProjectDetails = (props) => {
             <div>Price: ${project.price} shipping: {project.shipping}</div>
             
           </div>
+        </div>
+        <div>
+          <button onClick={()=>props.addToCart(project)}>Add to Cart</button>
         </div>
       </div>
     );
@@ -47,8 +57,14 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
+function mapActionsToProps(dispatch) {
+  return bindActionCreators({
+      addToCart
+  }, dispatch);
+}
+
 export default compose(
-  connect(mapStateToProps),
+  connect(mapStateToProps,mapActionsToProps),
   firestoreConnect([
     { collection: 'projects' },
   ]),
