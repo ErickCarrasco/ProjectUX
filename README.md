@@ -16,3 +16,5 @@ Host page
 https://accountsux.firebaseapp.com/
 
 Usando firebase hosting para tener un host del app
+
+Disponible en PWA
